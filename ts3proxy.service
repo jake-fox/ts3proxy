@@ -1,14 +1,13 @@
 [Unit]
 Description=TS3proxy
-After=multi-user.target
-Conflicts=getty@tty1.service
+After=network.target
 
 [Service]
 Type=simple
 WorkingDirectory=/home/ts3proxy
-ExecStart= /usr/bin/python3 -m ts3proxy
-StandardInput=tty-force
-restart=always
+ExecStart=/usr/bin/python3 -m ts3proxy
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
